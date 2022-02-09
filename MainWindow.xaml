@@ -4,8 +4,45 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
-        Title="MainWindow" Height="200" Width="200">
-    <Grid>
-        <Button Content="Send message" Click="ButtonBase_OnClick" Width="100" Height="25"/>
+        Title="Windows Toast Notification" 
+        Height="300" Width="800"
+        Icon="images/app.ico">
+    <Grid Margin="20">
+        
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition />
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        
+        <!-- Title -->
+        <Label Grid.Row="0" Grid.Column="0" Content="Heading"/>
+        <TextBox Grid.Row="0" Grid.Column="1" Text="{Binding Title}" Margin="10,5,10,5" Padding="4"/>
+
+        <!-- Message -->
+        <Label Grid.Row="1" Grid.Column="0" Content="Message"/>
+        <TextBox Grid.Row="1" Grid.Column="1" Text="{Binding Message}" Margin="10,5,10,5" Padding="4"/>
+
+        <!-- Logo Image Path -->
+        <Label Grid.Row="2" Grid.Column="0" Content="Logo Image Path"/>
+        <TextBox Grid.Row="2" Grid.Column="1" Text="{Binding LogoImagePath}" Margin="10,5,10,5" Padding="4"/>
+
+        <!-- Hero Image Path -->
+        <Label Grid.Row="3" Grid.Column="0" Content="Hero Image Path"/>
+        <TextBox Grid.Row="3" Grid.Column="1" Text="{Binding HeroImagePath}" Margin="10,5,10,5" Padding="4"/>
+
+        <!-- Inline Image Path -->
+        <Label Grid.Row="4" Grid.Column="0" Content="Inline Image Path"/>
+        <TextBox Grid.Row="4" Grid.Column="1" Text="{Binding InlineImagePath}" Margin="10,5,10,5" Padding="4"/>
+        
+        <Button Grid.Row="5" Grid.Column="1" Content="Create Notification" Command="{Binding CreateNotificationCommand}" Width="150" Padding="10,5,10,5" Margin="0,10,10,0" HorizontalAlignment="Right" />
     </Grid>
 </Window>
